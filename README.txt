@@ -6,7 +6,6 @@ If first order have a value lower then second and second order possible pick tim
 first order completion time.
 
 Variables:
-
 gson - builds a reader to read orders from Json
 gsonS - builds a reader to read store from Json
 OrderType - maps List of orders to Type
