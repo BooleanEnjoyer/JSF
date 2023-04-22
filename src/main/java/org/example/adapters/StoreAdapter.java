@@ -1,18 +1,20 @@
-package org.example;
+package org.example.adapters;
 
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
 import com.google.gson.stream.JsonWriter;
-
+import org.example.entities.Store;
 import java.io.IOException;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
 public class StoreAdapter extends TypeAdapter<Store> {
+
     @Override
-    public void write(JsonWriter jsonWriter, Store store) throws IOException {
+    public void write(JsonWriter jsonWriter, Store store)
+             {
 
     }
 
@@ -29,9 +31,10 @@ public class StoreAdapter extends TypeAdapter<Store> {
             }
 
             if("pickers".equals(fieldname)){
+
                 jsonReader.beginArray();
                 List<String> pickers = new ArrayList<>();
-                token = jsonReader.peek();
+                jsonReader.peek();
                 while (jsonReader.hasNext()){
                     pickers.add(jsonReader.nextString());
                 }
@@ -40,13 +43,19 @@ public class StoreAdapter extends TypeAdapter<Store> {
             }
 
             if("pickingStartTime".equals(fieldname)){
-                token = jsonReader.peek();
-                store.setPickingStartTime(LocalTime.parse(jsonReader.nextString()));
+
+                jsonReader.peek();
+                store.setPickingStartTime(
+                        LocalTime.parse(jsonReader.nextString())
+                );
             }
 
             if("pickingEndTime".equals(fieldname)){
-                token = jsonReader.peek();
-                store.setPickingEndTime(LocalTime.parse(jsonReader.nextString()));
+
+                jsonReader.peek();
+                store.setPickingEndTime(
+                        LocalTime.parse(jsonReader.nextString())
+                );
             }
         }
         jsonReader.endObject();

@@ -1,9 +1,10 @@
-package org.example;
+package org.example.entities;
 
 import java.time.LocalTime;
 import java.util.List;
 
 public class Store {
+
     public List<String> getPickers() {
         return pickers;
     }
@@ -27,8 +28,11 @@ public class Store {
     public void setPickingEndTime(LocalTime pickingEndTime) {
         this.pickingEndTime = pickingEndTime;
     }
+
     public Store(){}
-    public Store(List<String> pickers, LocalTime pickingStartTime, LocalTime pickingEndTime) {
+
+    public Store(List<String> pickers, LocalTime pickingStartTime,
+                 LocalTime pickingEndTime) {
         this.pickers = pickers;
         this.pickingStartTime = pickingStartTime;
         this.pickingEndTime = pickingEndTime;

@@ -1,18 +1,22 @@
-package org.example;
+package org.example.reader;
 
 import com.google.gson.stream.JsonReader;
+import org.example.Printer;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReaderFromJson{
+public class ArgumentsToJsonMapper {
+
     Printer printer = new Printer();
-    public List<JsonReader> readArguments(String[] args){
+
+    public List<JsonReader> mapArgumentsToJson(String[] args){
         List<JsonReader> readiedJsonFiles = new ArrayList<>();
         for (String argument : args ){
             try{
-                readiedJsonFiles.add(new JsonReader(new FileReader(argument)));
+                readiedJsonFiles.add(
+                        new JsonReader(new FileReader(argument)));
             }
             catch(FileNotFoundException e){
                 printer.printFileNotFound();

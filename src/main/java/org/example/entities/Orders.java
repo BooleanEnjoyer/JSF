@@ -1,10 +1,11 @@
-package org.example;
+package org.example.entities;
 
 import java.math.BigDecimal;
 import java.time.Duration;
 import java.time.LocalTime;
 
 public class Orders {
+
     public String getOrderId() {
         return orderId;
     }
@@ -40,12 +41,15 @@ public class Orders {
     public Orders(){
 
     }
-    public Orders(String orderId, BigDecimal orderValue, Duration pickingTime, LocalTime completeBy) {
+
+    public Orders(String orderId, BigDecimal orderValue,
+                  Duration pickingTime, LocalTime completeBy) {
         this.orderId = orderId;
         this.orderValue = orderValue;
         this.pickingTime =   pickingTime;
         this.completeBy = completeBy;
     }
+
     private String orderId;
     private BigDecimal orderValue;
     private Duration pickingTime;
