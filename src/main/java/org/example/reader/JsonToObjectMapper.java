@@ -15,13 +15,13 @@ public class JsonToObjectMapper{
     Class<Store> storeClass = Store.class;
     Class<Orders> ordersClass = Orders.class;
 
-    public Store mapJsonToStore(List<JsonReader> jsonReaders){
+    protected Store mapJsonToStore(List<JsonReader> jsonReaders){
         Gson storeGson = gsonTypeBuilder
                 .buildStoreGsonType(storeClass);
         return storeGson.fromJson(jsonReaders.get(0) , storeClass);
     }
 
-    public List<Orders> mapJsonToOrders(List<JsonReader> jsonReaders){
+    protected List<Orders> mapJsonToOrders(List<JsonReader> jsonReaders){
         Type ordersType = orderTokenMapper.assignOrderToken();
         Gson ordersGson = gsonTypeBuilder
                 .buildOrderGsonType(ordersClass);

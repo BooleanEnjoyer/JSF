@@ -9,14 +9,14 @@ import org.example.adapters.StoreAdapter;
 
 public class GsonTypeBuilder {
 
-    public Gson buildOrderGsonType( Class<Orders> ordersClass ){
+    protected Gson buildOrderGsonType( Class<Orders> ordersClass ){
         return new GsonBuilder()
                 .registerTypeAdapter(ordersClass, new OrdersAdapter())
                 .setPrettyPrinting()
                 .create();
     }
 
-    public Gson buildStoreGsonType( Class<Store> storeClass){
+    protected Gson buildStoreGsonType( Class<Store> storeClass){
         return new GsonBuilder()
                 .registerTypeAdapter(storeClass, new StoreAdapter())
                 .setPrettyPrinting()

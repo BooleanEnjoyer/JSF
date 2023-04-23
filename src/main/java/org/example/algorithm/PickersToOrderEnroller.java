@@ -91,7 +91,7 @@ public class PickersToOrderEnroller {
         return store.getPickingStartTime();
     }
 
-    public void sortOrders(List<Orders> orders){
+    private void sortOrders(List<Orders> orders){
         orders.sort(new OrderComparator());
     }
 

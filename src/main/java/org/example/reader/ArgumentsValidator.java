@@ -6,7 +6,7 @@ public class ArgumentsValidator {
 
     private static final int EXPECTED_ARGUMENTS_COUNT = 2;
 
-    public void validateArguments(String[] argumentsArray)
+    protected void validateArguments(String[] argumentsArray)
             throws IncorrectArgumentNumberException {
 
         Integer argumentsArraySize = argumentsArray.length;

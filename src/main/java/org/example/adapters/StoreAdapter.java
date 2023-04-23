@@ -23,6 +23,7 @@ public class StoreAdapter extends TypeAdapter<Store> {
         Store store = new Store();
         jsonReader.beginObject();
         String fieldname = null;
+
         while (jsonReader.hasNext()){
             JsonToken token = jsonReader.peek();
 

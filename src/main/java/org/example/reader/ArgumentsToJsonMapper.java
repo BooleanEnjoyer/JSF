@@ -10,8 +10,15 @@ import java.util.List;
 public class ArgumentsToJsonMapper {
 
     Printer printer = new Printer();
+    ArgumentsValidator argumentsValidator = new ArgumentsValidator();
 
-    public List<JsonReader> mapArgumentsToJson(String[] args){
+    protected List<JsonReader> mapArgumentsToJson(String[] args){
+        try {
+            argumentsValidator.validateArguments(args);
+        }
+        catch (Exception e){
+            System.exit(0);
+        }
         List<JsonReader> readiedJsonFiles = new ArrayList<>();
         for (String argument : args ){
             try{
@@ -25,4 +32,6 @@ public class ArgumentsToJsonMapper {
         }
         return readiedJsonFiles;
     }
+
+
 }
