@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.time.Duration;
 import java.time.LocalTime;
 
-public class Orders {
+public class Order {
 
     public String getOrderId() {
         return orderId;
@@ -50,8 +50,8 @@ public class Orders {
         this.completeBy = completeBy;
     }
 
-    private String orderId;
-    private BigDecimal orderValue;
+    private String id;
+    private BigDecimal value;
     private Duration pickingTime;
     private LocalTime completeBy;
 }
