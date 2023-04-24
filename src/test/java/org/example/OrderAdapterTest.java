@@ -3,19 +3,19 @@ package org.example;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-import org.example.adapters.OrdersAdapter;
-import org.example.entities.Orders;
+import org.example.adapter.OrdersAdapter;
+import org.example.entitiy.Order;
 import org.junit.jupiter.api.Test;
 import java.lang.reflect.Type;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class OrdersAdapterTest {
+class OrderAdapterTest {
 
     @Test
     void deserializationOrdersTest() {
-        Gson gson = new GsonBuilder().registerTypeAdapter(Orders.class , new OrdersAdapter()).create();
+        Gson gson = new GsonBuilder().registerTypeAdapter(Order.class , new OrdersAdapter()).create();
         String jsonOrderFile= """
                 [
                   {
@@ -42,8 +42,8 @@ class OrdersAdapterTest {
                     "pickingTime": "PT4M",
                     "completeBy": "11:14"
                   } ]""";
-        Type OrderType = new TypeToken<List<Orders>>(){}.getType();
-        List<Orders> jsonOrdersList = gson.fromJson(jsonOrderFile , OrderType);
-        assertEquals("order-4113", jsonOrdersList.get(2).getOrderId());
+        Type OrderType = new TypeToken<List<Order>>(){}.getType();
+        List<Order> jsonOrderList = gson.fromJson(jsonOrderFile , OrderType);
+        assertEquals("order-4113", jsonOrderList.get(2).getId());
     }
 }

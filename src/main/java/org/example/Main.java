@@ -1,9 +1,10 @@
 package org.example;
 
-import org.example.algorithm.PickersToOrderEnroller;
-import org.example.entities.Orders;
-import org.example.entities.Store;
+import org.example.service.PickersToOrderEnroller;
+import org.example.entitiy.Order;
+import org.example.entitiy.Store;
 import org.example.reader.ArgumentsMapper;
+import org.example.service.Printer;
 
 import java.util.List;
 
@@ -14,9 +15,9 @@ public class Main {
         ArgumentsMapper argumentsMapper = new ArgumentsMapper();
         PickersToOrderEnroller pickersToOrderEnroller = new PickersToOrderEnroller();
         Printer printer = new Printer();
-        List<Orders> orders = argumentsMapper.mapOrders(args);
+        List<Order> orders = argumentsMapper.mapOrders(args);
         Store store = argumentsMapper.mapStore(args);
-        List<String> enrolledOrders = pickersToOrderEnroller.enrollPickerToOrders(store,orders);
+        List<String> enrolledOrders = pickersToOrderEnroller.enrollPickerToOrders(store, orders);
         printer.printEnrolledOrders(enrolledOrders);
 
     }

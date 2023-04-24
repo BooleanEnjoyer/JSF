@@ -1,55 +1,57 @@
-package org.example.adapters;
+package org.example.adapter;
 
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
 import com.google.gson.stream.JsonWriter;
-import org.example.entities.Orders;
+import org.example.entitiy.Order;
+
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.Duration;
 import java.time.LocalTime;
 
-public class OrdersAdapter extends TypeAdapter<Orders> {
+public class OrdersAdapter extends TypeAdapter<Order> {
 
     @Override
     public void write(JsonWriter jsonWriter,
-                      Orders orders){}
+                      Order order) {
+    }
 
     @Override
-    public Orders read(JsonReader jsonReader) throws IOException {
+    public Order read(JsonReader jsonReader) throws IOException {
 
-        Orders order = new Orders();
+        Order order = new Order();
         jsonReader.beginObject();
         String fieldname = null;
 
-        while (jsonReader.hasNext()){
+        while (jsonReader.hasNext()) {
             JsonToken token = jsonReader.peek();
 
-            if(token.equals(JsonToken.NAME)){
+            if (token.equals(JsonToken.NAME)) {
                 fieldname = jsonReader.nextName();
             }
 
-            if("orderId".equals(fieldname)){
+            if ("orderId".equals(fieldname)) {
                 jsonReader.peek();
-                order.setOrderId(jsonReader.nextString());
+                order.setId(jsonReader.nextString());
             }
 
-            if("orderValue".equals(fieldname)){
+            if ("orderValue".equals(fieldname)) {
                 jsonReader.peek();
-                order.setOrderValue(
+                order.setValue(
                         new BigDecimal(jsonReader.nextString())
                 );
             }
 
-            if("pickingTime".equals(fieldname)){
+            if ("pickingTime".equals(fieldname)) {
                 jsonReader.peek();
                 order.setPickingTime(
                         Duration.parse(jsonReader.nextString())
                 );
             }
 
-            if("completeBy".equals(fieldname)){
+            if ("completeBy".equals(fieldname)) {
                 jsonReader.peek();
                 order.setCompleteBy(
                         LocalTime.parse(jsonReader.nextString())

@@ -1,7 +1,8 @@
 package org.example.reader;
 
 import com.google.gson.stream.JsonReader;
-import org.example.Printer;
+import org.example.service.Printer;
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
@@ -12,20 +13,18 @@ public class ArgumentsToJsonMapper {
     Printer printer = new Printer();
     ArgumentsValidator argumentsValidator = new ArgumentsValidator();
 
-    protected List<JsonReader> mapArgumentsToJson(String[] args){
+    protected List<JsonReader> mapArgumentsToJson(String[] args) {
         try {
             argumentsValidator.validateArguments(args);
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.exit(0);
         }
         List<JsonReader> readiedJsonFiles = new ArrayList<>();
-        for (String argument : args ){
-            try{
+        for (String argument : args) {
+            try {
                 readiedJsonFiles.add(
                         new JsonReader(new FileReader(argument)));
-            }
-            catch(FileNotFoundException e){
+            } catch (FileNotFoundException e) {
                 printer.printFileNotFound();
                 System.exit(0);
             }

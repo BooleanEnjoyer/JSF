@@ -2,21 +2,21 @@ package org.example.reader;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import org.example.entities.Orders;
-import org.example.entities.Store;
-import org.example.adapters.OrdersAdapter;
-import org.example.adapters.StoreAdapter;
+import org.example.entitiy.Order;
+import org.example.entitiy.Store;
+import org.example.adapter.OrdersAdapter;
+import org.example.adapter.StoreAdapter;
 
 public class GsonTypeBuilder {
 
-    protected Gson buildOrderGsonType( Class<Orders> ordersClass ){
+    protected Gson buildOrderGsonType(Class<Order> ordersClass) {
         return new GsonBuilder()
                 .registerTypeAdapter(ordersClass, new OrdersAdapter())
                 .setPrettyPrinting()
                 .create();
     }
 
-    protected Gson buildStoreGsonType( Class<Store> storeClass){
+    protected Gson buildStoreGsonType(Class<Store> storeClass) {
         return new GsonBuilder()
                 .registerTypeAdapter(storeClass, new StoreAdapter())
                 .setPrettyPrinting()

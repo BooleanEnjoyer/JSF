@@ -2,8 +2,8 @@ package org.example;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import org.example.adapters.StoreAdapter;
-import org.example.entities.Store;
+import org.example.adapter.StoreAdapter;
+import org.example.entitiy.Store;
 import org.junit.jupiter.api.Test;
 
 

@@ -1,6 +1,6 @@
-package org.example.exceptions;
+package org.example.exception;
 
-import org.example.Printer;
+import org.example.service.Printer;
 
 public class IncorrectArgumentNumberException extends Exception {
 

@@ -1,14 +1,15 @@
-package org.example.algorithm;
+package org.example.comparator;
 
-import org.example.entities.Orders;
+import org.example.entitiy.Order;
+
 import java.time.Duration;
 import java.time.LocalTime;
 import java.util.Comparator;
 
-public class OrderComparator implements Comparator<Orders> {
+public class OrderComparator implements Comparator<Order> {
 
     @Override
-    public int compare(Orders orderOne, Orders orderTwo) {
+    public int compare(Order orderOne, Order orderTwo) {
 
         LocalTime firstOrderCompleteTime = orderOne.getCompleteBy();
         Duration firstOrderPickingTime = orderOne.getPickingTime();

@@ -1,6 +1,6 @@
 package org.example.reader;
 
-import org.example.exceptions.IncorrectArgumentNumberException;
+import org.example.exception.IncorrectArgumentNumberException;
 
 public class ArgumentsValidator {
 
@@ -11,7 +11,7 @@ public class ArgumentsValidator {
 
         Integer argumentsArraySize = argumentsArray.length;
 
-        if(!argumentsArraySize.equals(EXPECTED_ARGUMENTS_COUNT)){
+        if (!argumentsArraySize.equals(EXPECTED_ARGUMENTS_COUNT)) {
             throw new IncorrectArgumentNumberException();
         }
     }
