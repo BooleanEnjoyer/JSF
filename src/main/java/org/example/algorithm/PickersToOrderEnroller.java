@@ -93,16 +93,17 @@ public class PickersToOrderEnroller {
 
     private void sortOrders(List<Orders> orders){
         orders.sort(new OrderComparator());
-    }
-
-    public List<String> enrollPickerToOrders(Store store,
+    } 
+//Sformatuj plik CTRL+ALT+L
+//Uporządkuj metody - najpietw publiczne, potem prywatne
+    public List<ScheduledOrder> enrollPickerToOrders(Store store,
                                              List<Orders> orders){
         sortOrders(orders);
         LocalTime timeToPick=store.getPickingStartTime();
-        List<String> enrolledOrders = new ArrayList<>();
-        List<String> pickerList = store.getPickers();
-        for(String picker : pickerList){
-            for(Orders order : orders){
+        List<ScheduledOrder> enrolledOrders = new ArrayList<>();
+        List<Picker> pickers = store.getPickers();
+        for(Picker picker : pickers){
+            for(Order order : orders){
                 if (hasTimeToPickOrder(order , timeToPick)
                 && !isTaken(enrolledOrders, order)) {
 
